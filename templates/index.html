@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+	<head>
+		<title>Bitwise Tech Tips</title>
+		<link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<meta name="twitter:card" content="summary"/>
+		{% block twittercard %}
+		<meta name="twitter:title" content="Bitwise Tech Tips"/>
+		<meta name="twitter:image" content="{% static 'images/LogoMedium2.PNG'%}"/>
+		<meta name="twitter:description" content="A technology blog for programming, IT tips, PC hardware and computer builds."/>
+		{% endblock %}
+		{% block metadata %}
+		<meta name="keywords" content="Tech, Blog, Tutorials, PC, Computer, PC Hardware, PC Builds, Programming, Python, Java, C++, Coding, Networking, IT, Information Technology Tips, Clearthur Oscar Lawshea"/>
+		<meta name="description" content="A technology blog for programming, IT tips, PC hardware and computer builds."/>
+		<meta property="og:locale" content="en_US"/>
+		<meta property="og:type" content="blog"/>
+		<meta property="og:title" content="Tech blog and tutorials"/>
+		<meta property="og:description" content="A technology blog for programming, IT tips, PC hardware and computer builds."/>
+		<meta property="og:url" content="https://www.bitwisetechtips.com"/>
+		<meta property="og:image" content=""/>
+		<meta property="og:site_name" content="Bitwise Tech Tips"/>
+		{% endblock %}
+		<meta name="google" content="notranslate"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+		<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+		{% block icon %}
+		<link rel="icon" href="{% static 'images/favicon.ico'%}" type='image/x-icon'/ >
+		{% endblock %}
+		<link rel="stylesheet" href="{% static 'css/style.css' %}" media="all"/>
+		<!--[if IE 6]>
+		<link href="default_ie6.css" rel="stylesheet" type="text/css" />
+		<![endif]-->
+	</head>
+
+	<body>
+		<div id="fb-root"></div>
+		<script async defer crossorigin="anonymous"
+		src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v5.0&appId=741336669708623&autoLogAppEvents=1"></script>
+		<!-- Navigation -->
+		<nav class="navbar navbar-expand-lg navbar-light bg-light shadow" id="mainNav">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="{% url 'home' %}" style="font-size:200%; color:#FF8040; font-weight:bold; text-shadow:3px 3px #0A0302;">Bitwise Tech Tips</a>
+                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                    aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item text-black">
+							<div class="btn-group dropleft">
+								<button class="btn btn-secondary text-black font-weight-bold" type="button" id="dropdownMenuButton">
+								Software
+								</button>
+								<button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								<span class="sr-only">Toggle Dropdown</span>
+								</button>
+								<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+									<a class="dropdown-item text-black font-weight-bold" href="{% url 'python' %}">Python</a>
+									<a class="dropdown-item text-black font-weight-bold" href="#">Java(coming soon)</a>
+									<a class="dropdown-item text-black font-weight-bold" href="#">C++(coming soon)</a>
+								</div>
+							</div>
+                        </li>
+                        <li class="nav-item text-black">
+							<div class="btn-group dropleft">
+								<button class="btn btn-secondary text-black font-weight-bold" type="button" id="dropdownMenuButton">
+								Hardware(coming soon)
+								</button>
+								<button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								<span class="sr-only">Toggle Dropdown</span>
+								</button>
+								<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+									<a class="dropdown-item text-black font-weight-bold" href="#">PC Builds</a>
+									<a class="dropdown-item text-black font-weight-bold" href="#">Hardware Reviews</a>
+									<a class="dropdown-item text-black font-weight-bold" href="#">Troubleshooting</a>
+								</div>
+							</div>
+						</li>
+						<li class="nav-item text-black">
+							<div class="btn-group dropleft">
+								<button class="btn btn-secondary text-black font-weight-bold" type="button" id="dropdownMenuButton">
+								Tech tips
+								</button>
+								<button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								<span class="sr-only">Toggle Dropdown</span>
+								</button>
+								<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+									<a class="dropdown-item text-black font-weight-bold" href="{% url 'infotech' %}">Windows Admin</a>
+									<a class="dropdown-item text-black font-weight-bold" href="#">Windows Server(coming soon)</a>
+									<a class="dropdown-item text-black font-weight-bold" href="{% url 'linux' %}">Kali Linux</a>
+									<a class="dropdown-item text-black font-weight-bold" href="{% url 'netcon' %}">Networking Concepts</a>
+								</div>
+							</div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        {% block content %}
+        <!-- Content Goes here -->
+        {% endblock %}
+{% block subscription %}
+<!-- Begin Mailchimp Signup Form -->
+<link href="//cdn-images.mailchimp.com/embedcode/classic-10_7_dtp.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+	#mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif;  width:100%;}
+	/* Add your own Mailchimp form style overrides in your site stylesheet or in this style block.
+	   We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+</style>
+<div id="mc_embed_signup">
+<form action="https://bitwisetechtips.us20.list-manage.com/subscribe/post?u=51a3e103260cc9245cdb2a138&amp;id=2c218ee8bd" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+    <div id="mc_embed_signup_scroll">
+	<h2>Subscribe For New Post Notifications</h2>
+<div class="indicates-required"><span class="asterisk">*</span> indicates required</div>
+<div class="mc-field-group">
+	<label for="mce-EMAIL">Email Address  <span class="asterisk">*</span>
+</label>
+	<input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL">
+</div>
+	<div id="mce-responses" class="clear foot">
+		<div class="response" id="mce-error-response" style="display:none"></div>
+		<div class="response" id="mce-success-response" style="display:none"></div>
+	</div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+    <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_51a3e103260cc9245cdb2a138_2c218ee8bd" tabindex="-1" value=""></div>
+        <div class="optionalParent">
+            <div class="clear foot">
+                <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button">
+                <p class="brandingLogo"><a href="http://eepurl.com/hQlfxv" title="Mailchimp - email marketing made easy and fun"><img src="https://eep.io/mc-cdn-images/template_images/branding_logo_text_light_dtp.svg"></a></p>
+            </div>
+        </div>
+    </div>
+</form>
+</div>
+<script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script><script type='text/javascript'>(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';fnames[3]='ADDRESS';ftypes[3]='address';fnames[4]='PHONE';ftypes[4]='phone';fnames[5]='BIRTHDAY';ftypes[5]='birthday';}(jQuery));var $mcj = jQuery.noConflict(true);</script>
+<!--End mc_embed_signup-->
+{% endblock %}
+		<!-- Footer -->
+		<div id="footer-wrapper">
+			<div id="footer" class="flex-container">
+			{% block follow-wrapper %}
+				<div id="follow-wrapper">
+					<div class="title">
+						<h2>Follow Me</h2>
+					</div>
+					<div>
+						<ul class="social-network social-circle">
+							<li>
+								<a href="https://www.facebook.com/BitWise-Tech-Tips-108834224770158/?ref=page_internal" class="icoFacebook" title="Facebook">
+									<i class="fa fa-facebook"></i>
+								</a>
+							</li>
+							<li>
+								<a href="https://twitter.com/BitWiseTechTip1" class="icoTwitter" title="Twitter">
+									<i class="fa fa-twitter"></i>
+								</a>
+							</li>
+							<!-- <li> -->
+								<!-- <a href="#" class="icoYouTube" title="YouTube"> -->
+									<!-- <i class="fa fa-youtube"></i> -->
+								<!-- </a> -->
+							<!-- </li> -->
+							<li>
+								<a href="https://medium.com/bitwise-tech-tips" class="icoMedium" title="Medium">
+									<i class="fa fa-medium"></i>
+								</a>
+							</li>
+							<!-- <li><a href="#" class="icon icon-rss"><span>Rss Feed</span></a></li> -->
+						</ul>
+					</div>
+				</div>
+			{% endblock %}
+			</div><!-- End flex-container -->
+		</div><!-- End footer wra-->
+    </body>
+</html>

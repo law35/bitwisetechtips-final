@@ -1,0 +1,64 @@
+{% extends 'index.html' %}
+
+{% block content %}
+<style>
+    body {
+        font-family: "Roboto", sans-serif;
+        font-size: 18px;
+        background-color: #fdfdfd;
+    }
+
+    .head_text {
+        color: white;
+    }
+
+    .card {
+        box-shadow: 0 16px 48px #E3E7EB;
+    }
+</style>
+<header class="masthead">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class=" col-md-8 col-md-10 mx-auto">
+                <div class="site-heading">
+                    <h3 style="color:black; font-weight:bold;"> "A blog by a tech geek, for tech geeks". </h3>
+                    <p>Here you will find how-tos on various tech topics, from software to hardware posted every Monday.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<div class="container">
+    <div class="row">
+        <!-- Blog Entries Column -->
+        <div class="col-md-8 mt-3 left">
+            {% for pythonpost in pythonpost_list %}
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h2 class="card-title" style="font-weight:bold;">{{ pythonpost.title }}</h2>
+					<img src="{{pythonpost.thumb.url}}" style="width:30%;"/>
+                    <p class="card-text text-muted h6">{{ pythonpost.author }} | {{ pythonpost.created_on}} </p>
+                    <p>{{pythonpost.description|slice:":360"}}</p>
+                    <a href="{% url 'python_post_detail' pythonpost.slug  %}" class="btn btn-primary">Read More &rarr;</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% block sidebar %} {% include 'sidebar.html' %} {% endblock sidebar %}
+    </div>
+{% if is_paginated %}
+	  <nav aria-label="Page navigation conatiner">
+		  <ul class="pagination justify-content-center">
+			{% if page_obj.has_previous %}
+			<li><a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; PREV </a></li>
+			{% endif %}
+			{% if page_obj.has_next %}
+			<li><a href="?page={{ page_obj.next_page_number }}" class="page-link"> NEXT &raquo;</a></li>
+			{% endif %}
+		  </ul>
+	  </nav>
+{% endif %}
+</div>
+{%endblock%}
+{% block subscription %}{% endblock %}

@@ -1,0 +1,41 @@
+{% extends 'index.html' %}
+
+{% block twittercard %}
+<meta name="twitter:title" content="{{ object.title }}"/>
+<meta data-rh="true" name="twitter:card" content="summary_large_image">
+<meta data-rh="true" name="twitter:image:src" content=https://www.bitwisetechtips.com{{ object.thumb.url }}/>
+<meta name="twitter:description" content="{{ post.description }}"/>
+{% endblock %}
+
+{% block metadata %}
+<meta name="keywords" content="{{ object.metakeywords }}"/>
+<meta name="description" content="{{ object.description }}"/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:type" content="blog"/>
+<meta property="og:title" content="{{ object.title }}"/>
+<meta property="og:description" content="{{ object.description }}"/>
+<meta data-rh="true" property="og:image" content=https://www.bitwisetechtips.com{{ object.thumb.url }}/>
+<meta property="og:url" content=""/>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 card mb-4  mt-3 left  top">
+      <div class="card-body">
+        <h1>{% block title %} {{ object.title }} {% endblock title %}</h1>
+        <p class=" text-muted">{{ linuxposts.author }} | {{ linuxposts.created_on }}</p>
+		<img src="{{linuxposts.thumb.url}}" style="width:60%"/>
+        <p class="card-text">{{ object.content | safe }}</p>
+      </div>
+    </div>
+    {% block sidebar %} {% include 'sidebar.html' %} {% endblock %}
+  </div>
+</div>
+{% endblock %}
+
+{% block follow-wrapper %}
+{% block commentbox %} {% include 'commentbox.html' %} {% endblock %}
+{% endblock %}
+
+{% block subscription %}{% endblock %}
